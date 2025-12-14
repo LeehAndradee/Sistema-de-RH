@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Funcionários{% endblock %}
+
+{% block content %}
+<h1 class="page-title">Funcionários</h1>
+
+<a href="{{ url_for('funcionario.novo') }}" class="btn btn-new">
+    + Novo Funcionário
+</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Cargo</th>
+            <th>Departamento</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for f in funcionarios %}
+        <tr>
+            <td>{{ f.nome }}</td>
+            <td>{{ f.email }}</td>
+            <td>{{ f.telefone }}</td>
+            <td>{{ f.nome_cargo }}</td>
+            <td>{{ f.nome_departamento }}</td>
+            <td>
+                <a href="{{ url_for('funcionario.editar', id=f.id) }}">
+                    Editar
+                </a>
+
+                <a href="{{ url_for('funcionario.excluir', id=f.id) }}"
+                   onclick="return confirm('Deseja excluir este funcionário?')">
+                    Excluir
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

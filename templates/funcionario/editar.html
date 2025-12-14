@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Funcionário{% endblock %}
+
+{% block content %}
+<div class="card-form">
+    <h1 class="form-title">✏️ Editar Funcionário</h1>
+
+    <form action="{{ url_for('funcionario.atualizar') }}" method="post">
+
+        <input type="hidden" name="id" value="{{ funcionario.id }}">
+
+        <div class="form-group">
+            <label>Nome</label>
+            <input type="text" name="nome"
+                   value="{{ funcionario.nome }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email"
+                   value="{{ funcionario.email }}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Telefone</label>
+            <input type="text" name="telefone"
+                   value="{{ funcionario.telefone }}">
+        </div>
+
+        <div class="form-group">
+            <label>Cargo</label>
+            <select name="idCargo" required>
+                {% for c in cargos %}
+                <option value="{{ c.idCargo }}"
+                    {% if c.idCargo == funcionario.idCargo %}selected{% endif %}>
+                    {{ c.nome_cargo }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Departamento</label>
+            <select name="idDepartamento" required>
+                {% for d in departamentos %}
+                <option value="{{ d.idDepartamento }}"
+                    {% if d.idDepartamento == funcionario.idDepartamento %}selected{% endif %}>
+                    {{ d.nome_departamento }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-save">💾 Atualizar</button>
+            <a href="{{ url_for('funcionario.listar') }}" class="btn btn-cancel">
+                Cancelar
+            </a>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

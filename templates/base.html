@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema RH{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h2>Sistema de RH</h2>
+    <nav>
+        <a href="{{ url_for('cargo.listar') }}">Cargos</a>
+        <a href="{{ url_for('departamento.listar') }}">Departamentos</a>
+        <a href="{{ url_for('funcionario.listar') }}">Funcionários</a>
+    </nav>
+</header>
+
+<main>
+    <div class="card">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+
+</body>
+</html>

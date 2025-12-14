@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: #1f2937; /* azul escuro corporativo */
+    padding: 15px 30px;
+    color: white;
+}
+
+header h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+nav a {
+    color: #e5e7eb;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+/* ===== CONTAINER ===== */
+main {
+    padding: 30px;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== TÍTULOS ===== */
+.page-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+/* ===== TABELA ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead {
+    background-color: #e5e7eb;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-edit {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #dc2626;
+    color: white;
+}
+
+.btn-new {
+    background-color: #16a34a;
+    color: white;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.form-card {
+    background: #ffffff;
+    padding: 30px;
+    width: 700px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form-card h2 {
+    margin-bottom: 25px;
+    color: #1f2937;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+.form-group input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-save {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-cancel {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.form-group select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    background: white;
+}
+
+
+/* Card */
+.card-form {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Título */
+.form-title {
+    margin-bottom: 25px;
+    color: #1f2933;
+    font-size: 26px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+/* Campos */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #374151;
+}
+
+.form-group input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+}
+
+/* Linha com 2 campos */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* Botões */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-save {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-cancel {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.btn-cancel:hover {
+    background-color: #d1d5db;
+}

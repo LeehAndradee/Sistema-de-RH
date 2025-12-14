@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Novo Funcionário{% endblock %}
+
+{% block content %}
+<div class="card-form">
+    <h1 class="form-title">👤 Novo Funcionário</h1>
+
+    <form action="{{ url_for('funcionario.salvar') }}" method="post">
+
+        <div class="form-group">
+            <label>Nome</label>
+            <input type="text" name="nome" required>
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Telefone</label>
+            <input type="text" name="telefone">
+        </div>
+
+        <div class="form-group">
+            <label>Cargo</label>
+            <select name="idCargo" required>
+                <option value="">Selecione</option>
+                {% for c in cargos %}
+                <option value="{{ c.idCargo }}">{{ c.nome_cargo }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Departamento</label>
+            <select name="idDepartamento" required>
+                <option value="">Selecione</option>
+                {% for d in departamentos %}
+                <option value="{{ d.idDepartamento }}">
+                    {{ d.nome_departamento }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-save">💾 Salvar</button>
+            <a href="{{ url_for('funcionario.listar') }}" class="btn btn-cancel">
+                Cancelar
+            </a>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

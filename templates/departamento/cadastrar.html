@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastro de Departamento{% endblock %}
+
+{% block content %}
+<div class="form-container">
+
+    <div class="form-card">
+        <h2>Cadastro de Departamento</h2>
+
+        <form action="{{ url_for('departamento.salvar') }}" method="post">
+
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nome do Departamento</label>
+                    <input type="text" name="nome_departamento"
+                           value="{{ departamento['nome_departamento'] if departamento }}"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Andar</label>
+                    <input type="number" name="andar"
+                           value="{{ departamento['andar'] if departamento }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Responsável</label>
+                    <input type="text" name="responsavel"
+                           value="{{ departamento['responsavel'] if departamento }}">
+                </div>
+
+                <div class="form-group">
+                    <label>Ramal</label>
+                    <input type="text" name="ramal"
+                           value="{{ departamento['ramal'] if departamento }}">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-save">
+                     Salvar
+                </button>
+
+                <a href="{{ url_for('departamento.listar') }}" class="btn btn-cancel">
+                    Cancelar
+                </a>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+{% endblock %}
