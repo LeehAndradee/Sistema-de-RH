@@ -23,9 +23,16 @@
             <td>{{ c['nome_cargo'] }}</td>
             <td>R$ {{ c['salario_base'] }}</td>
             <td>
-                <a href="{{ url_for('cargo.editar', id=c['idCargo']) }}" class="btn btn-edit">Editar</a>
-                <a href="{{ url_for('cargo.excluir', id=c['idCargo']) }}" class="btn btn-delete">Excluir</a>
-            </td>
+    <a href="{{ url_for('cargo.editar', id=c['idCargo']) }}"
+       class="btn btn-edit">Editar</a>
+
+    <a href="{{ url_for('cargo.excluir', id=c['idCargo']) }}"
+       class="btn btn-delete"
+       onclick="return confirm('Deseja excluir este cargo?')">
+        Excluir
+    </a>
+</td>
+
         </tr>
         {% endfor %}
     </tbody>

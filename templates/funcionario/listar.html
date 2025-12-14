@@ -30,15 +30,16 @@
             <td>{{ f.nome_cargo }}</td>
             <td>{{ f.nome_departamento }}</td>
             <td>
-                <a href="{{ url_for('funcionario.editar', id=f.id) }}">
-                    Editar
-                </a>
+    <a href="{{ url_for('funcionario.editar', id=f['id']) }}"
+       class="btn btn-edit">Editar</a>
 
-                <a href="{{ url_for('funcionario.excluir', id=f.id) }}"
-                   onclick="return confirm('Deseja excluir este funcionário?')">
-                    Excluir
-                </a>
-            </td>
+    <a href="{{ url_for('funcionario.excluir', id=f['id']) }}"
+       class="btn btn-delete"
+       onclick="return confirm('Deseja excluir este funcionário?')">
+        Excluir
+    </a>
+</td>
+
         </tr>
         {% endfor %}
     </tbody>

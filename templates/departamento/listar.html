@@ -26,18 +26,17 @@
             <td>{{ d['responsavel'] }}</td>
             <td>{{ d['andar'] }}</td>
             <td>{{ d['ramal'] }}</td>
-            <td>
-                <a href="{{ url_for('departamento.editar', id=d['idDepartamento']) }}">
-    Editar
-</a>
+           <td>
+    <a href="{{ url_for('departamento.editar', id=d['idDepartamento']) }}"
+       class="btn btn-edit">Editar</a>
 
+    <a href="{{ url_for('departamento.excluir', id=d['idDepartamento']) }}"
+       class="btn btn-delete"
+       onclick="return confirm('Deseja excluir este departamento?')">
+        Excluir
+    </a>
+</td>
 
-                <a href="{{ url_for('departamento.excluir', id=d['idDepartamento']) }}"
-   class="btn btn-delete"
-   onclick="return confirm('Deseja excluir este departamento?')">
-    Excluir
-</a>
-            </td>
         </tr>
         {% endfor %}
     </tbody>
