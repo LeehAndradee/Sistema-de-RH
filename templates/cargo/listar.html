@@ -3,38 +3,59 @@
 {% block title %}Cargos{% endblock %}
 
 {% block content %}
+
+<!-- FLASH MESSAGES -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 <h1 class="page-title">Cargos</h1>
 
 <a href="{{ url_for('cargo.novo') }}" class="btn btn-new">
     + Novo Cargo
 </a>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Nome do Cargo</th>
             <th>Salário Base</th>
-            <th>Ações</th>
+            <th style="width: 220px;">Ações</th>
         </tr>
     </thead>
     <tbody>
         {% for c in cargos %}
         <tr>
             <td>{{ c['nome_cargo'] }}</td>
-            <td>R$ {{ c['salario_base'] }}</td>
-            <td>
-    <a href="{{ url_for('cargo.editar', id=c['idCargo']) }}"
-       class="btn btn-edit">Editar</a>
+            <td>R$ {{ "%.2f"|format(c['salario_base']) }}</td>
+            <td class="actions">
+                <a href="{{ url_for('cargo.editar', id=c['idCargo']) }}"
+                   class="btn btn-edit">
+                    Editar
+                </a>
 
-    <a href="{{ url_for('cargo.excluir', id=c['idCargo']) }}"
-       class="btn btn-delete"
-       onclick="return confirm('Deseja excluir este cargo?')">
-        Excluir
-    </a>
-</td>
-
+                <a href="{{ url_for('cargo.excluir', id=c['idCargo']) }}"
+                   class="btn btn-delete"
+                   onclick="return confirm('Deseja excluir este cargo?')">
+                    Excluir
+                </a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
+<!-- AUTO REMOVER ALERT -->
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.alert').forEach(a => a.remove());
+  }, 4000);
+</script>
+
 {% endblock %}

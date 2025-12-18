@@ -3,7 +3,10 @@ from views.cargo_views import cargo_bp
 from views.departamento_views import departamento_bp
 from views.funcionario_views import funcionario_bp
 
+
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "minha-chave-super-secreta"
+
 
 app.register_blueprint(cargo_bp)
 app.register_blueprint(departamento_bp)  

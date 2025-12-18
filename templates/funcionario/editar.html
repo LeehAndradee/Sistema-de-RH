@@ -6,7 +6,7 @@
 <div class="card-form">
     <h1 class="form-title">✏️ Editar Funcionário</h1>
 
-    <form action="{{ url_for('funcionario.atualizar') }}" method="post">
+    <form action="{{ url_for('funcionario.editar', id=funcionario.id) }}" method="post">
 
         <input type="hidden" name="id" value="{{ funcionario.id }}">
 

@@ -6,10 +6,12 @@
 <div class="card-form">
     <h1 class="form-title">🏢 Editar Departamento</h1>
 
-    <form action="{{ url_for('departamento.atualizar') }}" method="post">
+    <form action="{{ url_for('departamento.editar', id=departamento.idDepartamento) }}" method="post">
 
-        <!-- ID oculto -->
-        <input type="hidden" name="idDepartamento" value="{{ departamento.idDepartamento }}">
+
+        <input type="hidden" name="idDepartamento"
+       value="{{ departamento['idDepartamento'] }}">
+
 
         <div class="form-group">
             <label>Nome do Departamento</label>

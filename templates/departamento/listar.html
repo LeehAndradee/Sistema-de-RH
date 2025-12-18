@@ -3,6 +3,18 @@
 {% block title %}Departamentos{% endblock %}
 
 {% block content %}
+
+<!-- FLASH MESSAGES -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 <h1 class="page-title">Departamentos</h1>
 
 <a href="{{ url_for('departamento.novo') }}" class="btn btn-new">
@@ -26,19 +38,26 @@
             <td>{{ d['responsavel'] }}</td>
             <td>{{ d['andar'] }}</td>
             <td>{{ d['ramal'] }}</td>
-           <td>
-    <a href="{{ url_for('departamento.editar', id=d['idDepartamento']) }}"
-       class="btn btn-edit">Editar</a>
+            <td>
+                <a href="{{ url_for('departamento.editar', id=d['idDepartamento']) }}"
+                   class="btn btn-edit">Editar</a>
 
-    <a href="{{ url_for('departamento.excluir', id=d['idDepartamento']) }}"
-       class="btn btn-delete"
-       onclick="return confirm('Deseja excluir este departamento?')">
-        Excluir
-    </a>
-</td>
-
+                <a href="{{ url_for('departamento.excluir', id=d['idDepartamento']) }}"
+                   class="btn btn-delete"
+                   onclick="return confirm('Deseja excluir este departamento?')">
+                    Excluir
+                </a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+
+<!-- AUTO FECHAR ALERTA -->
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.alert').forEach(a => a.remove());
+  }, 4000);
+</script>
+
 {% endblock %}

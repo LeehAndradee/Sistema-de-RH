@@ -6,7 +6,8 @@
 <div class="card-form">
     <h1 class="form-title">Editar Cargo</h1>
 
-    <form action="{{ url_for('cargo.atualizar') }}" method="post">
+    <form action="{{ url_for('cargo.editar', id=cargo.idCargo) }}" method="post">
+
 
         <!-- ID oculto -->
         <input type="hidden" name="idCargo" value="{{ cargo.idCargo }}">
